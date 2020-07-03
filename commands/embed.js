@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 const embedTitle = 'Helpful Commands';
 const embedDesc = '***C O M I N G S O O N*** ';
 const embedColor = 'A6D8FF';
-const embedFooter = 'Developed by Nero Studios LLC';
+const embedFooter = 'Developed by Nero Studios LLC | eli#3981';
 const errorColor = '';
 
 module.exports = {

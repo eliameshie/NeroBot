@@ -6,7 +6,7 @@ const ms = require('ms');
 const embedTitle = 'Mute';
 const embedDesc = '';
 const embedColor = 'A6D8FF';
-const embedFooter = 'Developed by Nero Studios LLC';
+const embedFooter = 'Developed by Nero Studios LLC | eli#3981';
 const errorColor = '';
 
 

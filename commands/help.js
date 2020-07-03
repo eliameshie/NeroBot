@@ -3,10 +3,36 @@ const Discord = require('discord.js');
 
 // Variables for Embed
 const embedTitle = 'Helpful Commands';
-const embedDesc = '***C O M I N G S O O N*** ';
+const embedDesc = `${commands}`;
 const embedColor = 'A6D8FF';
-const embedFooter = 'Developed by Nero Studios LLC';
+const embedFooter = 'Developed by Nero Studios LLC | eli#3981';
 const errorColor = '';
+
+// Commands
+
+const commands =
+`
+Helpful Commands 
+-
+!help - Displays the current commands available on the server.
+!anime - Displays the current anime of the week.
+!cnight - Displays this weeks community night & info about it.
+`
+
+const adminCommands = 
+`
+Helpful Commands
+-
+!help - Displays the current commands available on the server.
+!anime - Displays the current anime of the week.
+!cnight - Displays this weeks community night & info about it.
+
+Admin Commands 
+-
+!mute - Mute a player. (!mute @user <time> <reason>)
+!poll - Creates a poll (!poll <question>) 
+
+`
 
 
 module.exports = {

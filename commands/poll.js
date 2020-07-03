@@ -53,6 +53,6 @@ module.exports = {
 		return message.reply("You don't have access to this command.")
 	}
 
-	message.delete()
+		message.delete()
     }
 }

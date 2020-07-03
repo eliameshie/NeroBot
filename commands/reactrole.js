@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 
 // Variables for Embed
-const embedTitle = 'Nero Studios Reaction Role';
-const embedDesc = 'React to an emoji to receieve a role in the Discord and access to more channels!';
+const embedTitle = 'Reaction Roles';
+const embedDesc = 'React to an emoji to receive a role in the Discord and access to more channels!';
 const embedColor = 'A6D8FF';
-const embedFooter = 'Developed by Nero Studios LLC | *More Games Coming Soon*';
+const embedFooter = 'Developed by Nero Studios LLC | eli#3981';
 const errorColor = '';
 
 // ID for Emojis - Gaming
@@ -17,9 +17,17 @@ const valEmoji = '728410928919609404';
 
 const gRoles = 
 `
-<:Minecraft:728410837567537182> - Minecraft
-<:CSGO:728410400906936392> - CSGO
-<:Valorant:728410928919609404> - Valorant
+<:Minecraft:728410837567537182> | Minecraft
+<:CSGO:728410400906936392> | CSGO
+<:Valorant:728410928919609404> | Valorant
+
+`;
+
+const accessRoles = 
+`
+<:Minecraft:728410837567537182> | Minecraft
+<:CSGO:728410400906936392> | CSGO
+<:Valorant:728410928919609404> | Valorant
 
 `;
 
@@ -28,6 +36,12 @@ module.exports = {
     name: 'reactrole',
     description: "reactrole",
     execute(message, args) {
+
+
+if(!args[1]) return message.reply("Missing arguments.")
+
+if(args[1] === 'games') {
+
 
     const gameRoleEmbed = new Discord.RichEmbed()
     	.setTitle(embedTitle)
@@ -41,8 +55,27 @@ module.exports = {
     		message.react(mcEmoji);
     		message.react(csEmoji);
     		message.react(valEmoji);
-    	}).catch(err => console.log(err))
-    
+    	}).catch(err => console.log(err))    
+}
+ 
+if(args[1] === 'access') {
 
+
+    const accessRoleEmbed = new Discord.RichEmbed()
+    	.setTitle(embedTitle)
+    	.setDescription(embedDesc)
+    	.addField('Nero Studios Roles', `${accessRoles}`)
+    	.setColor(embedColor)
+    	.setFooter(embedFooter)
+
+    message.channel.send(accessRoleEmbed)
+    	.then(message => {
+    		message.react(mcEmoji);
+    		message.react(csEmoji);
+    		message.react(valEmoji);
+    	}).catch(err => console.log(err))    
+}
+
+    	message.delete()
     }
 }

@@ -7,7 +7,7 @@ const ms = require('ms');
 const embedTitle = 'Leaderboard';
 const embedDesc = 'Top 10 Players.';
 const embedColor = 'A6D8FF';
-const embedFooter = 'Developed by Nero Studios LLC';
+const embedFooter = 'Developed by Nero Studios LLC | eli#3981';
 const errorColor = '';
 
 // SQL Query Info & Connection FUTURE: Switch all over to .env
