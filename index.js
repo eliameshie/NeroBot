@@ -24,7 +24,7 @@ bot.on('guildMemberAdd', member => {
 
   member.send(joinEmbed);
 
-  member.addRole(member.guild.roles.find(role => role.name === "Limited Access"));
+  member.addRole(member.guild.roles.find(role => role.name === "Limited-Access"));
 
   if(!welcomeChannel) return console.log('No Welcome Channel Exists.');
 
@@ -72,8 +72,8 @@ bot.on('message', message => {
             bot.commands.get('comnight').execute(message, args);
         break;
 
-       case "reacts":
-            bot.commands.get('reacts').execute(message, args);
+       case "reactrole":
+            bot.commands.get('reactrole').execute(message, args);
         break;
 
         case "poll":
@@ -98,14 +98,31 @@ bot.on('message', message => {
 });
  
 
-bot.on('messageReactionAdd', (reaction, user) => {
-  if(bot.user) return;
-  const roleName = reaction.emoji.name;
-  const role = reaction.message.guild.roles.find(role => role.name === roleName);
-  const member = reaction.message.guild.members.find(member => member.id === user.id);
 
-  member.addRole(role.id)
+
+bot.on('messageReactionAdd', (reaction, user) => {
+
+if(reaction.message.guild.channels.find(channel => channel.name === 'getting-started')) {
+
+    const roleName = reaction.emoji.name;
+    const role = reaction.message.guild.roles.find(role => role.name === roleName)
+    const member = reaction.message.guild.members.find(member => member.id === user.id);
+    member.addRole(role.id)
+    
+  }
 })
+
+bot.on('messageReactionRemove', (reaction, user) => {
+
+if(reaction.message.guild.channels.find(channel => channel.name === 'getting-started')) {
+
+    const roleName = reaction.emoji.name;
+    const role = reaction.message.guild.roles.find(role => role.name === roleName)
+    const member = reaction.message.guild.members.find(member => member.id === user.id);
+    member.removeRole(role.id)
+  }  
+})
+
 
 
 bot.login(TOKEN);
