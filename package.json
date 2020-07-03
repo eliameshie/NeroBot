@@ -1,0 +1,18 @@
+{
+  "name": "Nero",
+  "version": "1.0.0",
+  "description": "Discord Bot for Nero Studios LLC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "Eli Ameshie",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0",
+    "ms": "^2.1.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4"
+  }
+}
