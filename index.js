@@ -1,10 +1,14 @@
 require('dotenv').config();
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+
 const TOKEN = process.env.TOKEN;
 const fs = require('fs');
 const PREFIX = '!'
 const color = 'A6D8FF';  
+
+const bot = new Discord.Client({
+  'partials': ['MESSAGE']
+});
 
 
 // onJoin DM New User Embed. 
@@ -72,12 +76,13 @@ bot.on('message', message => {
             bot.commands.get('comnight').execute(message, args);
         break;
 
-       case "reactrole":
-            bot.commands.get('reactrole').execute(message, args);
-        break;
 
         case "poll":
             bot.commands.get('poll').execute(message, args);
+        break;
+
+        case "anime":
+            bot.commands.get('anime').execute(message, args);
         break;
 
         case "mute":
@@ -97,31 +102,6 @@ bot.on('message', message => {
  
 });
  
-
-
-
-bot.on('messageReactionAdd', (reaction, user) => {
-
-if(reaction.message.guild.channels.find(channel => channel.name === 'getting-started')) {
-
-    const roleName = reaction.emoji.name;
-    const role = reaction.message.guild.roles.find(role => role.name === roleName)
-    const member = reaction.message.guild.members.find(member => member.id === user.id);
-    member.addRole(role.id)
-    
-  }
-})
-
-bot.on('messageReactionRemove', (reaction, user) => {
-
-if(reaction.message.guild.channels.find(channel => channel.name === 'getting-started')) {
-
-    const roleName = reaction.emoji.name;
-    const role = reaction.message.guild.roles.find(role => role.name === roleName)
-    const member = reaction.message.guild.members.find(member => member.id === user.id);
-    member.removeRole(role.id)
-  }  
-})
 
 
 

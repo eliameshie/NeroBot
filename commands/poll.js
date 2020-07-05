@@ -19,7 +19,6 @@ module.exports = {
 
     if(message.member.roles.some(role => ["// Higher Staff"].includes(role.name))) {
 
-
 	const logChannel = message.guild.channels.find(channel => channel.name === 'poll-logs'); 
 	const pollQuest = args.slice(1).join(" ");
 	const pollEmbed = new Discord.RichEmbed()

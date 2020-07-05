@@ -3,7 +3,6 @@ const Discord = require('discord.js');
 
 // Variables for Embed
 const embedTitle = 'Helpful Commands';
-const embedDesc = `${commands}`;
 const embedColor = 'A6D8FF';
 const embedFooter = 'Developed by Nero Studios LLC | eli#3981';
 const errorColor = '';
@@ -12,28 +11,26 @@ const errorColor = '';
 
 const commands =
 `
-Helpful Commands 
--
-!help - Displays the current commands available on the server.
-!anime - Displays the current anime of the week.
-!cnight - Displays this weeks community night & info about it.
+**!help** - Displays the current commands available on the server.
+**!anime** - Displays the current anime of the week.
+**!cnight** - Displays this weeks community night & info about it.
 `
 
 const adminCommands = 
 `
-Helpful Commands
--
-!help - Displays the current commands available on the server.
-!anime - Displays the current anime of the week.
-!cnight - Displays this weeks community night & info about it.
+**!help** - Displays the current commands available on the server.
+**!anime** - Displays the current anime of the week.
+**!cnight** - Displays this weeks community night & info about it.
 
-Admin Commands 
--
-!mute - Mute a player. (!mute @user <time> <reason>)
-!poll - Creates a poll (!poll <question>) 
+**Admin Commands** 
+
+**!mute** - Mute a player. (!mute @user <time> <reason>)
+**!poll** - Creates a poll (!poll <question>) 
 
 `
 
+const embedDesc = `${commands}`;
+const embedADesc = `${adminCommands}`;
 
 module.exports = {
     name: 'help',
@@ -45,8 +42,23 @@ module.exports = {
       .setColor(embedColor)
       .setDescription(embedDesc)
       .setFooter(embedFooter);
-    
+
+    const adminhelpEmbed = new Discord.RichEmbed()
+      .setTitle(embedTitle)
+      .setColor(embedColor)
+      .setDescription(embedADesc)
+      .setFooter(embedFooter);
+
+
+if(message.member.roles.some(role =>
+    ['// Higher Staff'].includes(role.name))) {
+    message.channel.send(adminhelpEmbed)
+   } else {
     message.channel.send(helpEmbed);
-   
+
+
+   }
+
+
     }
 }

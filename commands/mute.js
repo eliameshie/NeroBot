@@ -17,7 +17,7 @@ module.exports = {
   
 
 
-    if(message.member.roles.some(role => ['Higher Staff']
+    if(message.member.roles.some(role => ['// Higher Staff']
       .includes(role.name))) {
         
 
